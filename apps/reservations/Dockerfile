@@ -10,7 +10,6 @@ COPY . .
 
 RUN yarn build
 
-
 # Create a production image
 FROM node:alpine as production
 
