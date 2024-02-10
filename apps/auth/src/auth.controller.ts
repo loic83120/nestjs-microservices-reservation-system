@@ -18,6 +18,9 @@ export class AuthController {
     @Res({ passthrough: true }) response: Response,
   ) {
     await this.authService.login(user, response);
+
+    // Even if it's encrypted don't expose the password
+    delete user.password;
     response.send(user);
   }
 

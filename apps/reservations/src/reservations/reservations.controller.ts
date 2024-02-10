@@ -13,11 +13,11 @@ import { CreateReservationDto } from './dto/create-reservation.dto';
 import { UpdateReservationDto } from './dto/update-reservation.dto';
 import { CurrentUser, JwtAuthGuard, UserDTO } from '@app/common';
 
+@UseGuards(JwtAuthGuard)
 @Controller('reservations')
 export class ReservationsController {
   constructor(private readonly reservationsService: ReservationsService) { }
 
-  @UseGuards(JwtAuthGuard)
   @Post()
   async create(
     @Body() createReservationDto: CreateReservationDto,
@@ -30,19 +30,16 @@ export class ReservationsController {
   }
 
   @Get()
-  @UseGuards(JwtAuthGuard)
   async findAll() {
     return this.reservationsService.findAll();
   }
 
   @Get(':id')
-  @UseGuards(JwtAuthGuard)
   async findOne(@Param('id') id: string) {
     return this.reservationsService.findOne(id);
   }
 
   @Patch(':id')
-  @UseGuards(JwtAuthGuard)
   async update(
     @Param('id') id: string,
     @Body() updateReservationDto: UpdateReservationDto,
@@ -51,7 +48,6 @@ export class ReservationsController {
   }
 
   @Delete(':id')
-  @UseGuards(JwtAuthGuard)
   async remove(@Param('id') id: string) {
     return this.reservationsService.remove(id);
   }
