@@ -1,4 +1,4 @@
-import { CardDTO } from '@app/common';
+import { CardDTO, CreateChargeDto } from '@app/common';
 import { Type } from 'class-transformer';
 import {
   IsDate,
@@ -18,20 +18,9 @@ export class CreateReservationDto {
   @Type(() => Date)
   endDate: Date;
 
-  @IsString()
-  @IsNotEmpty()
-  placeId: string;
-
-  @IsString()
-  @IsNotEmpty()
-  invoiceId: string;
-
-  @Type(() => CardDTO)
+  @Type(() => CreateChargeDto)
   @IsDefined()
   @IsNotEmpty()
   @ValidateNested()
-  card: CardDTO;
-
-  @IsNumber()
-  amount: number;
+  charge: CreateChargeDto;
 }
