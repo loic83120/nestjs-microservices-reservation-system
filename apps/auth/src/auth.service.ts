@@ -30,4 +30,8 @@ export class AuthService {
       httpOnly: true,
     });
   }
+
+  async logout(response: Response) {
+    response.clearCookie('Authentication');
+  }
 }
