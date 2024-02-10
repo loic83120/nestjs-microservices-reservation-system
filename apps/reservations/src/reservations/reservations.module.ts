@@ -1,7 +1,12 @@
 import { Module } from '@nestjs/common';
 import { ReservationsService } from './reservations.service';
 import { ReservationsController } from './reservations.controller';
-import { AUTH_SERVICE, DatabaseModule, LoggerModule, PAYMENTS_SERVICE } from '@app/common';
+import {
+  AUTH_SERVICE,
+  DatabaseModule,
+  LoggerModule,
+  PAYMENTS_SERVICE,
+} from '@app/common';
 import { ReservationsRepository } from './reservations.repository';
 import {
   ReservationDocument,
@@ -24,7 +29,7 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
         MONGODB_URI: Joi.string().required(),
         PORT: Joi.number().required(),
         AUTH_HOST: Joi.string().required(),
-        AUTH_PORT: Joi.number().required()
+        AUTH_PORT: Joi.number().required(),
       }),
     }),
     ClientsModule.registerAsync([
@@ -55,4 +60,4 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
   controllers: [ReservationsController],
   providers: [ReservationsService, ReservationsRepository],
 })
-export class ReservationsModule { }
+export class ReservationsModule {}

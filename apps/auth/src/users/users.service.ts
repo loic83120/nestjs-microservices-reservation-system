@@ -1,4 +1,8 @@
-import { Injectable, UnauthorizedException, UnprocessableEntityException } from '@nestjs/common';
+import {
+  Injectable,
+  UnauthorizedException,
+  UnprocessableEntityException,
+} from '@nestjs/common';
 import { UserRepository } from './user.repository';
 import { CreateUserDTO } from './dto/create-user.dto';
 import * as bcryptjs from 'bcryptjs';
@@ -6,7 +10,7 @@ import { GetUserDto } from './dto/get-user.dto';
 
 @Injectable()
 export class UsersService {
-  constructor(private readonly userRepository: UserRepository) { }
+  constructor(private readonly userRepository: UserRepository) {}
 
   private async validateCreateUserDto(createUserDto: CreateUserDTO) {
     try {

@@ -13,7 +13,7 @@ import { AUTH_SERVICE } from '../constants/service';
 
 @Injectable()
 export class JwtAuthGuard implements CanActivate {
-  constructor(@Inject(AUTH_SERVICE) private readonly authClient: ClientProxy) { }
+  constructor(@Inject(AUTH_SERVICE) private readonly authClient: ClientProxy) {}
 
   canActivate(
     context: ExecutionContext,

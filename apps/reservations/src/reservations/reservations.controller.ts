@@ -16,7 +16,7 @@ import { CurrentUser, JwtAuthGuard, UserDTO } from '@app/common';
 @UseGuards(JwtAuthGuard)
 @Controller('reservations')
 export class ReservationsController {
-  constructor(private readonly reservationsService: ReservationsService) { }
+  constructor(private readonly reservationsService: ReservationsService) {}
 
   @Post()
   async create(

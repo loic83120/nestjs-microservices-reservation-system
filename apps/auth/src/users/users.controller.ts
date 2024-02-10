@@ -7,7 +7,7 @@ import { UserDocument } from './models/user.schema';
 
 @Controller('users')
 export class UsersController {
-  constructor(private readonly userService: UsersService) { }
+  constructor(private readonly userService: UsersService) {}
 
   @Post()
   async createUser(@Body() createUserDto: CreateUserDTO) {

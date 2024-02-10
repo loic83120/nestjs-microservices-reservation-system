@@ -9,8 +9,8 @@ async function bootstrap() {
   const app = await NestFactory.create<INestApplication>(ReservationsModule);
   app.use(cookieParser());
   app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
-  app.useLogger(app.get(Logger))
-  const configService = app.get(ConfigService)
+  app.useLogger(app.get(Logger));
+  const configService = app.get(ConfigService);
   await app.listen(configService.get<string>('PORT'));
 }
 bootstrap();
